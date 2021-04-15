@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Teacher;
+import com.example.demo.interfacesclass.Emailsend;
 import com.example.demo.interfacesclass.Repo;
 @CrossOrigin
 @RestController
@@ -21,11 +22,16 @@ public class Controller
     @Autowired
     Repo rep;
     
-	@PostMapping("/addteacher")
+    @Autowired
+    Emailsend emailsend;
+	
+    @PostMapping("/addteacher")
 	@ResponseBody
      public void add(@RequestBody Teacher teach)
      {   
-    	rep.save(teach);
-    	
+    	String email = teach.getEmail();
+    	String password = teach.getPassword();
+    	emailsend.sendMail(email, "SIS Company", password);
+		rep.save(teach);
      }
 }
