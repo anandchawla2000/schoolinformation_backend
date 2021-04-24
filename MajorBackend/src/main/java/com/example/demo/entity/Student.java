@@ -2,42 +2,45 @@ package com.example.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-public class Teacher 
-{  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int id;
-  @Column(name="name")
-   private String fname;
-   private String email;
-   @Column(name="password")
-   private String Password;
-   private String Classall;
-   @Column(name="Address")
-   private String Add;
+public class Student
+{   @Id
+	private int admissionid;
+@Column(name="name")
+private String fname;
+private String dob;
+private String email;
+private String Password;
+private String Classall;
+@Column(name="Address")
+private String Add;
 @Override
 public String toString() {
-	return "Teacher [id=" + id + ", fname=" + fname + ", email=" + email + ", Password=" + Password + ", Classall="
-			+ Classall + ", Add=" + Add + "]";
+	return "Student [admissionid=" + admissionid + ", fname=" + fname + ", dob=" + dob + ", email=" + email
+			+ ", Password=" + Password + ", Classall=" + Classall + ", Add=" + Add + "]";
 }
-public int getId() {
-	return id;
+public int getAdmissionid() {
+	return admissionid;
 }
-public void setId(int id) {
-	this.id = id;
+public void setAdmissionid(int admissionid) {
+	this.admissionid = admissionid;
 }
 public String getFname() {
 	return fname;
 }
 public void setFname(String fname) {
 	this.fname = fname;
+}
+public String getDob() {
+	return dob;
+}
+public void setDob(String dob) {
+	this.dob = dob;
 }
 public String getEmail() {
 	return email;
@@ -64,5 +67,4 @@ public void setAdd(String add) {
 	Add = add;
 }
 
-   
 }

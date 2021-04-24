@@ -1,10 +1,16 @@
 package com.example.demo.interfacesclass;
 
-import javax.persistence.Id;
-import org.springframework.data.repository.CrudRepository;
 import com.example.demo.entity.Teacher;
+import java.util.*;
 
-public interface Repo extends CrudRepository<Teacher, Integer>
-{
-   
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+
+public interface Repo extends JpaRepository<Teacher, Integer>
+{  
+    @Query("from Teacher where email= :email And password= :password")
+	List<Teacher> find(@Param("email") String email,@Param("password") String pasword);
+ 
 }
