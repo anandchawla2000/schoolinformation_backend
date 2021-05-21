@@ -54,7 +54,7 @@ public class Controller { // create object
 		String email = teach.getEmail();
 		String password = teach.getPassword();
 		String msg = "Your login credit details email id" + email + "password " + password + "";
-		//emailsend.sendMail(email, "SIS Company", msg);
+		emailsend.sendMail(email, "SIS Company", msg);
 		rep.save(teach);
 	}
 
@@ -73,7 +73,7 @@ public class Controller { // create object
 		String password = Student.getPassword();
 		System.out.println(Student);
 		String msg = "Your login credit details email id =" + email + " And password = " + password + "";
-		// emailsend.sendMail(email, "SIS Company", msg);
+		emailsend.sendMail(email, "SIS Company", msg);
 		repostudent.save(Student);
 
 	}
